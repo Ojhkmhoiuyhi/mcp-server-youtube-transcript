@@ -1,0 +1,48 @@
+args:
+- npm
+- install
+- "&&"
+- node
+- index.js
+command: npx
+config_schema:
+  properties:
+    ci:
+      description: CI environment variable
+      type: string
+    mcp_in_docker:
+      description: MCP_IN_DOCKER environment variable
+      type: string
+    pwmcp_debug:
+      description: PWMCP_DEBUG environment variable
+      type: string
+    pwmcp_test_connection_timeout:
+      description: PWMCP_TEST_CONNECTION_TIMEOUT environment variable
+      type: string
+    pwmcp_test_protocol_version:
+      description: PWMCP_TEST_PROTOCOL_VERSION environment variable
+      type: string
+  required:
+  - PWMCP_TEST_CONNECTION_TIMEOUT
+  - PWMCP_DEBUG
+  - CI
+  - MCP_IN_DOCKER
+  - PWMCP_TEST_PROTOCOL_VERSION
+  type: object
+description: Playwright Tools for MCP
+env:
+- name: PWMCP_TEST_CONNECTION_TIMEOUT
+  value: config.pwmcp_test_connection_timeout
+- name: PWMCP_DEBUG
+  value: config.pwmcp_debug
+- name: CI
+  value: config.ci
+- name: MCP_IN_DOCKER
+  value: config.mcp_in_docker
+- name: PWMCP_TEST_PROTOCOL_VERSION
+  value: config.pwmcp_test_protocol_version
+license: Apache-2.0
+owner: microsoft
+package: "@playwright/mcp"
+server_name: "@playwright/mcp"
+vendor: Cprime
